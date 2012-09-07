@@ -1,4 +1,7 @@
 Owl::Application.routes.draw do
+  
+  match '/lessons/one' => 'lessons#one', :as => :lesson_one
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

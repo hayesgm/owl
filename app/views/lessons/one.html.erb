@@ -1,0 +1,129 @@
+
+<div class="container">
+	
+	<h1>Lesson One: Getting used to HTML</h1>
+	
+	<p>
+		For all lessons, there's a small bit of setup required.  This one is going to be more than most.
+		<ul>
+			<li>From Applications, open iterm</li>
+			<li><pre>cd ~/puppy</pre></li>
+			<li><pre>git clone git@github.com:hayesgm/ego.git</pre></li>
+			<li><pre>cd ego</pre></li>
+			<li><pre>git checkout -b lesson_one</pre></li>
+			<li><pre>git pull origin lesson_one</pre></li>
+			<li><pre>rails s -p 2020</pre></li>
+		</ul>
+	</p>
+
+	<p>
+		Throughout this course, we're going to be creating a social network.
+		People will be able to sign up, create a bio, add friends and tons more.
+	</p>
+
+	<p>
+		To get started though, we'll need to learn some basic HTML.
+		We're going to create a simple bios page, first.
+	</p>
+
+	<h2>A History of HTML</h2>
+
+	<p>
+		Computers are dumb.  They can only do exactly what you tell them to do.
+		If you are off by the slightest bit.. if you tell them a half-truth, they
+		will often throw up their hands in despair.  So, when we talk to computers,
+		we need to use precise language.  On the Internet, this generally means
+		we talk in HTML (Hypertext Markup Language).  This page is just some HTML.
+	</p>
+
+	<p>
+		HTML is a simple language that
+		modern browsers know how to draw-up on your screen.  It's made up of silly
+		<em>elements</em> like &lt;p&gt; to tell the computer you want to write a
+		'paragraph', or &lt;a&gt; to tell the computer you want to create an 'anchor' link
+		to another page.  Elements have a start &lt;element&gt; and an end &lt;/element&gt; and can
+		have anything inside.
+	</p>
+
+	<p>
+		The most important thing to recognize about HTML is that elements can be embedded inside other elements.
+		So, above, you can have an anchor link, in a paragraph, inside of another paragraph.  That might look something
+		like this: <pre>&lt;p&gt; This is a &lt;p&gt; paragraph and a &lt;a&gt;link&lt;/a&gt;. &lt;/p&gt; &lt;/p&gt;</pre>
+	</p>
+
+	<p>
+		That's really all there is HTML, elements inside of elements.
+		It's what they mean and how you use them that makes ugly and useless into pretty and useful.
+	</p>
+
+	<p>
+		One more thing.  Say you want a link that's red and bold.  You need to tell the browser a bit more about your element.
+		You do this by specifying 'attributes'.  &lt;a color="red"&gt;click me; i'm red&lt;/a&gt;
+	</p>
+	
+	<p>
+		Here are some elements you'll need:
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Element</th>
+					<th>Name</th>
+					<th>Attributes</th>
+					<th>Notes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>a</td>
+					<td>Anchor link</td>
+					<td>href="http://example.com/some/page"</td>
+					<td>A link to another page</td>
+				</tr>
+				<tr>
+					<td>img</td>
+					<td>Image</td>
+					<td>src="http://example.com/image.png"</td>
+					<td>Display an image</td>
+				</tr>
+				<tr>
+					<td>div</td>
+					<td>Div</td>
+					<td></td>
+					<td>An element with some space around it</td>
+				</tr>
+				<tr>
+					<td>span</td>
+					<td>Span</td>
+					<td></td>
+					<td>An element that display inline next to other elements</td>
+				</tr>
+				<tr>
+					<td>h1</td>
+					<td>Heading 1</td>
+					<td></td>
+					<td>Any text inside will be BIG AND BOLD</td>
+				</tr>
+				<tr>
+					<td>h2</td>
+					<td>Heading 2</td>
+					<td></td>
+					<td>Any text inside will be somewhat Big And Bold</td>
+				</tr>
+			</tbody>
+		</table>
+	</p>
+	
+	<p>You can use <a href="http://codepen.io" target="_blank">codepen.io</a> to test out designs.</p>
+	
+	<h1>Your Lesson</h1>
+	
+	<p>
+		Your first task is design a simple bio page for yourself.  It should include your name, age, and a picture.
+		You'll need to edit the file in <pre>app/views/bios/me.html.erb</pre>
+	</p>
+	
+	<p>
+		You can view your bio <a href="http://localhost:2020/about/me" target="_blank">here</a>.  Good luck and happy coding.
+	</p>
+	
+</div>

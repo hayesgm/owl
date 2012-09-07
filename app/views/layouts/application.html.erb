@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Owl</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>Owl</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= javascript_include_tag "bootstrap" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+	<ul class="nav nav-tabs top-nav">
+		<li><a href="/">Home</a></li>
+		<li class="dropdown">
+			<a class="dropdown-toggle"
+			data-toggle="dropdown" href="#">Lessons<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<a href="<%= lesson_one_path %>">One - Bios</a>
+			</ul>
+		</li>
+	</ul>
+	
+	<%= yield %>
+	
+	<div class="row footer">
+		<div class="copyright">Copyright 2012, Geoffrey Hayes</div>
+	</div>
 
 </body>
 </html>
