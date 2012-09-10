@@ -44,3 +44,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+# Twitter Bootstrap
+gem 'less-rails-bootstrap'
+gem 'therubyracer'

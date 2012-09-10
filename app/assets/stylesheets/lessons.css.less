@@ -3,9 +3,13 @@
 @red: #e33;
 @green: #3c3;
 
+a.lesson-link:not(.completed) i {
+	display:none;
+}
+
 .lesson {
 	color: @black;
-	width: 600px;
+	width: 700px;
 }
 
 .lesson .head {
@@ -14,19 +18,22 @@
 }
 
 .lesson .head .result {
-	font-size: 16px;
-	display: block;
-	color: @red;
+	
 }
 
 .lesson .head .result.success {
-	font-size: 16px;
-	display: block;
-	color: @green;
+	display: inline-block;
 }
 
-.lesson .head .result + .next { display: none; }
-.lesson .head .result.success + .next { display: block; }
+.lesson .head .result + .next { display: none; margin-left: 15px; }
+.lesson .head .result.success + .next { display: inline-block; }
+
+.lesson .head .desc {
+	display:block;
+	font-size: 20px;
+	font-weight: 300;
+	margin: 18px 0 8px 0;
+}
 
 .lesson .main {
 	width: 100;

@@ -40,19 +40,20 @@
 			// 1) Build a lesson box
 			var lesson = $('<div>').addClass('lesson'),
 				head = $('<div>').addClass('head').appendTo(lesson),
-				headText = $('<h1>').text('Lesson').appendTo(head),
+				headText = $('<h1>').text('Lesson Set: ' + that.data('lesson')).appendTo(head),
 				main = $('<div>').addClass('main').appendTo(lesson),
 				blockLeft = $('<span>').addClass('split-block').appendTo(main),
 				blockRight = $('<span>').addClass('split-block').appendTo(main),
 				input = $('<textarea>').addClass('input').attr('placeholder', 'First, enter your HTML here').appendTo(blockLeft),
 				iframe = $("<iframe>").attr('frameborder', 0),
-				result = $("<span>").addClass('result').text('[Incomplete]').appendTo(head),
-				next = $("<a>").addClass('next').text('Next').attr('href', 'javascript:void(0)').appendTo(head),
+				result = $("<span>").addClass('result').addClass('label').text('[Incomplete]').appendTo(head),
+				next = $("<a>").addClass('next').addClass('btn').text('Next Problem').attr('href', 'javascript:void(0)').appendTo(head),
 				doc = null,
 				res = null,
 				complete = false,
 				problems = that.find('*[data-problem]'),
-				desc = $('<span>').addClass('desc').appendTo(head);
+				desc = $('<span>').addClass('desc').appendTo(head),
+				a = null;
 			
 			console.log(lesson);
 			
@@ -68,6 +69,18 @@
 			
 			iframe.css('display', 'none');
 			$(document.body).append(iframe);
+			blockRight.append(iframe);
+			iframe.css('display', 'block');
+			
+			var resetProblem = function() {
+				complete = false;
+				result.text('[Incomplete]').removeClass('success').removeClass('label-success');
+				input.val('');
+				res.innerHTML = "";
+				var resEm = doc[0].createElement('em');
+				resEm.innerText = '[ Result will show up here ]';
+				res.appendChild(resEm);
+			};
 			
 			var setupProblem = function(problems, i) {
 				if (problems.size() > i + 1) {
@@ -76,22 +89,30 @@
 						resetProblem();
 						setupProblem(problems, i+1)
 					});
-				} else { next.hide(); }
+				} else {
+					next.text('Finish');
+					next.click(function() {
+						a.addClass('completed');
+						$.colorbox.close();
+					});
+				}
 				
 				var problem = $(problems[i]);
 				
-				desc.text(problem.data('problem'));
+				desc.text('Task: ' + problem.data('problem'));
 				
+				input.unbind();
 				input.keyup(function() {
 					// Set html on res object
 					doc.find('#res').html($(this).val());
 					
 					// Then check for success
 					if (!complete) {
+						console.log(['Checking for: ', problem.data('success-css') ]);
 						if (doc.find('#res').find(problem.data('success-css')).size() > 0) {
 							if (validateHTML($(this).val())) {
 								complete = true;
-								result.text('Success!').addClass('success');
+								result.text('Success!').addClass('success').addClass('label-success');
 							} else {
 								result.text('[Incomplete - You need to close html tags.]');
 							}
@@ -100,28 +121,21 @@
 						}
 					}
 				});
-				
-				var resetProblem = function() {
-					result.text('[Incomplete]').removeClass('success');
-					input.val('');
-					var resEm = doc[0].createElement('em');
-					resEm.innerText = '[ Result will show up here ]';
-					res.appendChild(resEm);
-				};
-
-				// 2) Build a link
-				var a = $('<a>').attr('href', 'javascript:void(0)').text('Lesson: ' + that.data('lesson'));
-				that.after(a);
-
-				// 3) Attach events
-				a.click(function() {
-					resetProblem();
-					blockRight.append(iframe);
-					//that.after(lesson);
-					iframe.css('display', 'block');
-					$.colorbox( { inline: true, href: lesson, transition: 'none' } );
-				});
 			};
+			
+			// 2) Build a link
+			a = $('<a>').addClass('lesson-link').attr('href', 'javascript:void(0)')
+				.append($('<i class="icon-ok">'))
+				.append($('<span>').text('Lesson Set: ' + that.data('lesson')));
+			
+			// 3) Attach events
+			a.click(function() {
+				resetProblem();
+				//setupProblem(problems, i)
+				$.colorbox( { inline: true, href: lesson, transition: 'none' } );
+			});
+			
+			that.after(a);
 			
 			setupProblem(problems, 0);
 			
