@@ -51,3 +51,9 @@ div[data-lesson] {
 .image .desc {
 	font-size: 88%;
 }
+
+img.logo {
+	float:left;
+	padding-left: 20px;
+	padding-right: 5px;
+}
