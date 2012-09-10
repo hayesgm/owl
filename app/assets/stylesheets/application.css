@@ -30,3 +30,24 @@ div[data-lesson] {
 	display:none;
 }
 
+.image {
+	width: 320px;
+	clear: right;
+	float: right;
+}
+
+.image .bordered {
+	border: 1px solid #CCC;
+	padding: 3px !important;
+	background-color: #F9F9F9;
+	text-align: center;
+	overflow: hidden;
+}
+
+.image img {
+	border: 1px solid #CCC
+}
+
+.image .desc {
+	font-size: 88%;
+}

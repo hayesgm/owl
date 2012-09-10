@@ -23,46 +23,71 @@
 
 	<p>
 		To get started though, we'll need to learn some basic HTML.
-		We're going to create a simple bios page, first.
+		We're going to begin with creating a simple <em>Bio</em> page.
 	</p>
 
 	<h2>A History of HTML</h2>
 
 	<p>
 		Computers are dumb.  They can only do exactly what you tell them to do.
-		If you are off by the slightest bit.. if you tell them a half-truth, they
+		If you are off by the slightest bit or if you tell them a half-truth, they
 		will often throw up their hands in despair.  So, when we talk to computers,
-		we need to use precise language.  On the Internet, this generally means
-		we talk in HTML (Hypertext Markup Language).  This page is just some HTML.
+		we need to use precise language.  On the Internet, we often speak in HTML.
+		This page is just some HTML.
 	</p>
 
 	<p>
-		HTML is a simple language that
-		modern browsers know how to draw-up on your screen.  It's made up of silly
+		HTML is a simple language that modern browsers know how to draw onto your screen.  It's made up of silly
 		<em>elements</em> like &lt;p&gt; to tell the computer you want to write a
 		'paragraph', or &lt;a&gt; to tell the computer you want to create an 'anchor' link
 		to another page.  Elements have a start &lt;element&gt; and an end &lt;/element&gt; and can
 		have anything inside.
 	</p>
 
+	<div class="image">
+		<div class="bordered">
+			<img src="/images/dom.png">
+			<div class="desc">What an HTML document looks like to a computer.<br/><br/>The HTML to produce this might be something like
+				<em>&lt;html&gt;&lt;body&gt;&lt;div&gt;&lt;h1&gt;&lt;a href="www.google.com"&gt;Visit Google!&lt;/a&gt;&lt;span&gt;&lt;/span&gt;&lt;/body&gt;&lt;/html&gt;</em>
+			</div>
+		</div>
+	</div>
+	
 	<p>
-		The most important thing to recognize about HTML is that elements can be embedded inside other elements.
-		So, above, you can have an anchor link, in a paragraph, inside of another paragraph.  That might look something
-		like this: <pre>&lt;p&gt; This is a &lt;p&gt; paragraph and a &lt;a&gt;link&lt;/a&gt;. &lt;/p&gt; &lt;/p&gt;</pre>
-	</p>
-
-	<p>
-		That's really all there is HTML, elements inside of elements.
-		It's what they mean and how you use them that makes ugly and useless into pretty and useful.
-	</p>
-
-	<p>
-		One more thing.  Say you want a link that's red and bold.  You need to tell the browser a bit more about your element.
-		You do this by specifying 'attributes'.  &lt;a color="red"&gt;click me; i'm red&lt;/a&gt;
+		In fact, elements can be embedded inside other elements.
+		You can have an anchor link, in a paragraph, inside of another paragraph.  That might look something
+		like this: <pre style="width:60%">&lt;p&gt; This is a &lt;p&gt; paragraph and a &lt;a&gt;link&lt;/a&gt;. &lt;/p&gt; &lt;/p&gt;</pre>
+		
+		<div data-lesson="Getting Started with HTML" data-method="html">
+			<span data-problem="Make a 'div' (divider) element." data-success-css="div">
+			<span data-problem="Make a two 'div' elements (in a row)." data-success-css="div + div">
+			<span data-problem="Make a div element inside of a div element." data-success-css="div div">
+		</div>
 	</p>
 	
 	<p>
-		Here are some elements you'll need:
+		When you visit a webpage, your browser will read the HTML and construct a <em>tree</em>, like on the right.  This represents a structured view of 
+		the data on your webpage.  Just like your family tree, every node has a parent and any number of children.
+	</p>
+	
+	<p>
+		One last thing about elements.  Say you want a link that's red and bold.  You need to tell the browser a bit more about your element.
+		You do this by specifying <em>attributes</em> for elements.  &lt;a color="red"&gt;click me; i'm red&lt;/a&gt;.  Two attributes
+		that will come up time and time again are <em>id</em> and <em>class</em>. Id is just a name for an element, and class
+		tells the browser how you want it displayed.
+	</p>
+	
+	<div data-lesson="Adding an Attribute" data-method="html">
+		<span data-problem="Make an 'img' (image) element with an attribute 'src' equal to '/images/happy.png'." data-success-css="img[src]">
+	</div>
+	
+	<p>
+		That's really all there is HTML, elements inside of elements.
+		It's which elements you choose and how you order them that will transform ugly and useless into pretty and useful.
+	</p>
+
+	<p>
+		Here's a quick list of elements you'll need:
 		<table class="table">
 			<thead>
 				<tr>
@@ -113,24 +138,29 @@
 		</table>
 	</p>
 	
-	<p>You can use <a href="http://codepen.io" target="_blank">codepen.io</a> to test out designs.</p>
+	<p>Note: you can also use <a href="http://codepen.io" target="_blank">codepen.io</a> to test out designs.</p>
 	
+	<h3>Additional Problems</h3>
 	
 	<div data-lesson="Getting Dirty with HTML" data-method="html">
 		<span data-problem="Make a span inside of a div." data-success-css="div > span">
-		<span data-problem="Make an anchor link inside of a h1 element." data-success-css="h1 > a">
-		<span data-problem="Make a div with class 'bio'." data-success-css="div[class=bio]">
+		<span data-problem="Make an 'a' (anchor) link inside of a 'h1' (heading one) element." data-success-css="h1 > a">
+		<span data-problem="Make a div with class='bio'." data-success-css="div[class=bio]">
 	</div>
 	
-	<h1>Your Lesson</h1>
+	<h1>Your Homework</h1>
 	
+	<p>
+		Each lesson will have homework that will accelerate your skills to building Ego.  You will be running
+		Ego locally, and building up your MVP before unleashing it on the world.
+	</p>
 	<p>
 		Your first task is design a simple bio page for yourself.  It should include your name, age, and a picture.
 		You'll need to edit the file in <pre>app/views/bios/me.html.erb</pre>
 	</p>
 	
 	<p>
-		You can view your bio <a href="http://localhost:2020/about/me" target="_blank">here</a>.  Good luck and happy coding.
+		When you have everything set up, you'll be able to view your bio <a href="http://localhost:2020/about/me" target="_blank">here</a>.  Good luck and happy coding.
 	</p>
 	
 </div>

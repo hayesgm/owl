@@ -110,7 +110,7 @@
 					if (!complete) {
 						console.log(['Checking for: ', problem.data('success-css') ]);
 						if (doc.find('#res').find(problem.data('success-css')).size() > 0) {
-							if (validateHTML($(this).val())) {
+							if (validateHTML("<html>"+ $(this).val() + "</html>")) {
 								complete = true;
 								result.text('Success!').addClass('success').addClass('label-success');
 							} else {
