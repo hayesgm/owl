@@ -51,6 +51,11 @@ GEM
     json (1.7.5)
     less (2.2.2)
       commonjs (~> 0.2.6)
+    less-rails (2.2.3)
+      actionpack (>= 3.1)
+      less (~> 2.2.0)
+    less-rails-bootstrap (2.1.1)
+      less-rails (~> 2.2.0)
     libv8 (3.3.10.4)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -127,6 +132,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
   less
+  less-rails-bootstrap
   pg
   rails (= 3.2.2)
   rspec-rails
